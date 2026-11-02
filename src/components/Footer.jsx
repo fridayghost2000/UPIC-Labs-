@@ -11,6 +11,7 @@ export default function Footer({ onNavigate }) {
   ];
 
   const solutions = [
+    { label: 'Why UPIC & Business Protection', pageId: 'why-upic', isPage: true },
     { label: 'Workplace Solutions & Risk', pageId: 'workplace-solutions', isPage: true },
     { label: 'About Us & Founder Story', pageId: 'about-us', isPage: true },
     { label: 'Shop Diagnostic Panels', sectionId: 'consultation-booking', isPage: false },

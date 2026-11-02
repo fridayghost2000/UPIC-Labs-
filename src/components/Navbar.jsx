@@ -32,7 +32,7 @@ export default function Navbar({
   ];
 
   const otherNavLinks = [
-    { id: 'why-upic', label: 'Why UPIC', sectionId: 'risk-intelligence', isPage: false },
+    { id: 'why-upic', label: 'Why UPIC', pageId: 'why-upic', isPage: true },
     { id: 'workplace-solutions', label: 'Workplace Solutions', pageId: 'workplace-solutions', isPage: true },
     { id: 'about-us', label: 'About Us', pageId: 'about-us', isPage: true },
     { id: 'contact', label: 'Contact', sectionId: 'consultation-booking', isPage: false },

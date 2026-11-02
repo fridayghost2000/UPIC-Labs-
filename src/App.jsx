@@ -17,15 +17,16 @@ import DrugTesting from './pages/DrugTesting';
 import DnaTesting from './pages/DnaTesting';
 import AboutUs from './pages/AboutUs';
 import WorkplaceSolutions from './pages/WorkplaceSolutions';
+import WhyUpic from './pages/WhyUpic';
 
 function App() {
   const [selectedService, setSelectedService] = useState('');
   const [shopModalOpen, setShopModalOpen] = useState(false);
 
-  // Initialize page from URL hash (e.g. #/what-we-do, #/drug-testing, #/dna-testing, #/about-us, #/workplace-solutions)
+  // Initialize page from URL hash (e.g. #/what-we-do, #/drug-testing, #/dna-testing, #/about-us, #/workplace-solutions, #/why-upic)
   const getInitialPage = () => {
     const hash = window.location.hash.replace(/^#\/?/, '');
-    if (['what-we-do', 'drug-testing', 'dna-testing', 'about-us', 'workplace-solutions'].includes(hash)) {
+    if (['what-we-do', 'drug-testing', 'dna-testing', 'about-us', 'workplace-solutions', 'why-upic'].includes(hash)) {
       return hash;
     }
     return 'home';
@@ -37,7 +38,7 @@ function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace(/^#\/?/, '');
-      if (['what-we-do', 'drug-testing', 'dna-testing', 'about-us', 'workplace-solutions'].includes(hash)) {
+      if (['what-we-do', 'drug-testing', 'dna-testing', 'about-us', 'workplace-solutions', 'why-upic'].includes(hash)) {
         setCurrentPage(hash);
       } else {
         setCurrentPage('home');
@@ -165,6 +166,15 @@ function App() {
           <WorkplaceSolutions
             onBookClick={(svc) => scrollToBooking(svc)}
             onNavigateHome={() => handleNavigate('home')}
+          />
+        )}
+
+        {/* Separate Page 6: WHY UPIC */}
+        {currentPage === 'why-upic' && (
+          <WhyUpic
+            onBookClick={(svc) => scrollToBooking(svc)}
+            onNavigateHome={() => handleNavigate('home')}
+            onNavigateWorkplace={() => handleNavigate('workplace-solutions')}
           />
         )}
       </main>

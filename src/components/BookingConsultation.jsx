@@ -210,7 +210,7 @@ export default function BookingConsultation({ initialService = '' }) {
                   <img src="/logo.webp" alt="UPIC - United Partners In Care" className="h-10 w-auto object-contain contrast-[1.08]" />
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl text-navy-dark font-bold leading-tight">UPIC Labs LLC</h3>
+                  <h3 className="font-headline-md text-headline-md text-navy-dark font-bold">UPIC Labs LLC</h3>
                   <p className="font-label-sm text-label-sm text-slate-muted">Headquarters & Direct Collection Site</p>
                 </div>
               </div>
