@@ -1,0 +1,188 @@
+import React, { useState, useEffect } from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import TrustHighlights from './components/TrustHighlights';
+import ServicesGrid from './components/ServicesGrid';
+import RiskIntelligence from './components/RiskIntelligence';
+import ComplianceProtocols from './components/ComplianceProtocols';
+import BookingConsultation from './components/BookingConsultation';
+import FaqSection from './components/FaqSection';
+import CtaBanner from './components/CtaBanner';
+import Footer from './components/Footer';
+import ShopTestsModal from './components/ShopTestsModal';
+
+// Separate Service Pages
+import WhatWeDo from './pages/WhatWeDo';
+import DrugTesting from './pages/DrugTesting';
+import DnaTesting from './pages/DnaTesting';
+import AboutUs from './pages/AboutUs';
+import WorkplaceSolutions from './pages/WorkplaceSolutions';
+
+function App() {
+  const [selectedService, setSelectedService] = useState('');
+  const [shopModalOpen, setShopModalOpen] = useState(false);
+
+  // Initialize page from URL hash (e.g. #/what-we-do, #/drug-testing, #/dna-testing, #/about-us, #/workplace-solutions)
+  const getInitialPage = () => {
+    const hash = window.location.hash.replace(/^#\/?/, '');
+    if (['what-we-do', 'drug-testing', 'dna-testing', 'about-us', 'workplace-solutions'].includes(hash)) {
+      return hash;
+    }
+    return 'home';
+  };
+
+  const [currentPage, setCurrentPage] = useState(getInitialPage);
+
+  // Handle browser back / forward navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace(/^#\/?/, '');
+      if (['what-we-do', 'drug-testing', 'dna-testing', 'about-us', 'workplace-solutions'].includes(hash)) {
+        setCurrentPage(hash);
+      } else {
+        setCurrentPage('home');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const handleNavigate = (pageId, sectionId = '') => {
+    if (pageId === 'home') {
+      window.location.hash = '#/';
+      setCurrentPage('home');
+      if (sectionId) {
+        setTimeout(() => {
+          const el = document.getElementById(sectionId);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 120);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    } else {
+      window.location.hash = `#/${pageId}`;
+      setCurrentPage(pageId);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handleSelectService = (serviceId) => {
+    setSelectedService(serviceId);
+    handleNavigate('home', 'consultation-booking');
+  };
+
+  const scrollToBooking = (serviceId = '') => {
+    if (serviceId) {
+      setSelectedService(serviceId);
+    }
+    handleNavigate('home', 'consultation-booking');
+  };
+
+  const scrollToServices = () => {
+    handleNavigate('home', 'services-grid');
+  };
+
+  return (
+    <div className="min-h-screen bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col selection:bg-secondary-fixed selection:text-navy-dark">
+      {/* Fixed Navigation Header with Services Dropdown */}
+      <Navbar
+        currentPage={currentPage}
+        onNavigate={handleNavigate}
+        onBookTestClick={() => scrollToBooking()}
+        onShopTestsClick={() => setShopModalOpen(true)}
+      />
+
+      {/* Main Content Layout offset for fixed header */}
+      <main className="w-full pt-[120px] bg-surface min-h-[calc(100vh-120px)] flex flex-col">
+        {currentPage === 'home' && (
+          <>
+            {/* Hero Section */}
+            <Hero
+              onScheduleClick={() => scrollToBooking()}
+              onExploreClick={() => scrollToServices()}
+            />
+
+            {/* Trust Highlights Strip */}
+            <TrustHighlights />
+
+            {/* Specialized Services Grid */}
+            <ServicesGrid onSelectService={handleSelectService} />
+
+            {/* Data Callout: Workplace Substance Abuse Impact */}
+            <RiskIntelligence onBuildPlanClick={() => scrollToBooking('workplace')} />
+
+            {/* Multi-Modal Regulatory Compliance Tiles */}
+            <ComplianceProtocols />
+
+            {/* Interactive Consultation & Appointment Booking + HQ Info */}
+            <BookingConsultation initialService={selectedService} />
+
+            {/* Frequently Asked Questions */}
+            <FaqSection />
+
+            {/* Final Conversion Action Banner */}
+            <CtaBanner onRequestClick={() => scrollToBooking('mobile')} />
+          </>
+        )}
+
+        {/* Separate Page 1: WHAT WE DO */}
+        {currentPage === 'what-we-do' && (
+          <WhatWeDo
+            onBookClick={(svc) => scrollToBooking(svc)}
+            onNavigateHome={() => handleNavigate('home')}
+            onSelectServicePage={(pageId) => handleNavigate(pageId)}
+          />
+        )}
+
+        {/* Separate Page 2: DRUG TESTING */}
+        {currentPage === 'drug-testing' && (
+          <DrugTesting
+            onBookClick={(svc) => scrollToBooking(svc)}
+            onNavigateHome={() => handleNavigate('home')}
+          />
+        )}
+
+        {/* Separate Page 3: DNA PATERNITY TESTING */}
+        {currentPage === 'dna-testing' && (
+          <DnaTesting
+            onBookClick={(svc) => scrollToBooking(svc)}
+            onNavigateHome={() => handleNavigate('home')}
+          />
+        )}
+
+        {/* Separate Page 4: ABOUT US */}
+        {currentPage === 'about-us' && (
+          <AboutUs
+            onBookClick={(svc) => scrollToBooking(svc)}
+            onNavigateHome={() => handleNavigate('home')}
+          />
+        )}
+
+        {/* Separate Page 5: WORKPLACE SOLUTIONS */}
+        {currentPage === 'workplace-solutions' && (
+          <WorkplaceSolutions
+            onBookClick={(svc) => scrollToBooking(svc)}
+            onNavigateHome={() => handleNavigate('home')}
+          />
+        )}
+      </main>
+
+      {/* Footer */}
+      <Footer 
+        onServiceSelect={handleSelectService}
+        onNavigate={handleNavigate}
+      />
+
+      {/* Quick Test Catalog Modal */}
+      <ShopTestsModal
+        isOpen={shopModalOpen}
+        onClose={() => setShopModalOpen(false)}
+        onSelectTest={(cat) => handleSelectService(cat)}
+      />
+    </div>
+  );
+}
+
+export default App;
