@@ -278,3 +278,4 @@ export default function WhyUpic({ onBookClick, onNavigateHome, onNavigateWorkpla
     </div>
   );
 }
+
