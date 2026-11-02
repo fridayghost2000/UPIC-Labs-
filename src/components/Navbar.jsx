@@ -85,7 +85,7 @@ export default function Navbar({
       <div className="h-20 bg-surface-white/95 backdrop-blur-xl border-b border-border-subtle">
         <div className="max-w-[1320px] mx-auto px-space-md lg:px-space-xl h-20 flex items-center justify-between gap-space-md">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center shrink-0">
             <a 
               className="flex items-center group py-0.5 cursor-pointer" 
               href="#"
@@ -98,7 +98,7 @@ export default function Navbar({
               <img 
                 src="/logo.webp" 
                 alt="UPIC - United Partners In Care" 
-                className="h-12 sm:h-14 md:h-16 w-auto object-contain transition-all duration-200 group-hover:scale-[1.03] contrast-[1.12] brightness-[1.01] drop-shadow-[0_1px_1px_rgba(0,0,0,0.06)]"
+                className="h-9 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-all duration-200 group-hover:scale-[1.03] contrast-[1.12] brightness-[1.01] drop-shadow-[0_1px_1px_rgba(0,0,0,0.06)]"
               />
             </a>
           </div>
@@ -216,24 +216,24 @@ export default function Navbar({
           </nav>
 
           {/* Action Buttons & Profile */}
-          <div className="flex items-center gap-space-sm sm:gap-space-md">
+          <div className="flex items-center gap-2 sm:gap-space-md shrink-0">
             <button
               onClick={onShopTestsClick}
-              className="hidden sm:inline-flex items-center gap-1.5 px-space-md py-2.5 rounded-lg bg-surface-clinical text-primary border border-primary/20 hover:bg-surface-container font-label-md text-label-md transition-all cursor-pointer"
+              className="hidden md:inline-flex items-center gap-1.5 px-space-md py-2.5 rounded-lg bg-surface-clinical text-primary border border-primary/20 hover:bg-surface-container font-label-md text-label-md transition-all cursor-pointer whitespace-nowrap"
             >
               <span className="material-symbols-outlined text-[18px]">shopping_cart</span>
               Shop Tests
             </button>
             <button
               onClick={onBookTestClick}
-              className="inline-flex items-center gap-1.5 px-space-md py-2.5 rounded-lg bg-amber-rich hover:bg-secondary text-slate-charcoal hover:text-surface-white font-label-md text-label-md shadow-sm transition-all cursor-pointer font-bold"
+              className="inline-flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg bg-amber-rich hover:bg-secondary text-slate-charcoal hover:text-surface-white font-label-md text-xs sm:text-label-md shadow-sm transition-all cursor-pointer font-bold whitespace-nowrap"
             >
-              <span className="material-symbols-outlined text-[18px]">call</span>
-              Book Test
+              <span className="material-symbols-outlined text-[16px] sm:text-[18px]">call</span>
+              <span>Book Test</span>
             </button>
 
-            {/* Client Portal / Profile Button */}
-            <div className="flex items-center pl-space-xs">
+            {/* Client Portal / Profile Button (visible on sm+) */}
+            <div className="hidden sm:flex items-center pl-space-xs">
               <button
                 type="button"
                 title="Client & Physician Portal"
@@ -246,7 +246,7 @@ export default function Navbar({
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-2 rounded-lg text-navy-dark hover:bg-surface-clinical transition-colors"
+              className="xl:hidden p-1.5 sm:p-2 rounded-lg text-navy-dark hover:bg-surface-clinical transition-colors"
               aria-label="Toggle Navigation Menu"
             >
               <span className="material-symbols-outlined text-[24px]">
@@ -340,17 +340,34 @@ export default function Navbar({
               </a>
             ))}
 
-            <div className="pt-2 flex flex-col gap-2 border-t border-border-subtle mt-2 sm:hidden">
+            <div className="pt-3 flex flex-col gap-2 border-t border-border-subtle mt-2 sm:hidden">
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onBookTestClick();
+                }}
+                className="w-full inline-flex items-center justify-center gap-2 px-space-md py-2.5 rounded-lg bg-amber-rich hover:bg-secondary text-slate-charcoal hover:text-surface-white font-label-md font-bold shadow-sm"
+              >
+                <span className="material-symbols-outlined text-[18px]">calendar_today</span>
+                Book Appointment / Consultation
+              </button>
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onShopTestsClick();
                 }}
-                className="w-full inline-flex items-center justify-center gap-1.5 px-space-md py-2.5 rounded-lg bg-surface-clinical text-primary border border-primary/20 font-label-md"
+                className="w-full inline-flex items-center justify-center gap-1.5 px-space-md py-2.5 rounded-lg bg-surface-clinical text-primary border border-primary/20 font-label-md font-semibold"
               >
                 <span className="material-symbols-outlined text-[18px]">shopping_cart</span>
-                Shop Tests
+                Shop Diagnostic Tests
               </button>
+              <div className="pt-1 flex items-center justify-between px-2 text-xs text-slate-muted">
+                <span className="flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-[16px] text-royal-blue">account_circle</span>
+                  Client & Physician Portal
+                </span>
+                <span className="text-royal-blue font-semibold">Sign In &rarr;</span>
+              </div>
             </div>
           </nav>
         </div>
