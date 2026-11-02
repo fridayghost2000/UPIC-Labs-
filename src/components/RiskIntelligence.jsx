@@ -10,7 +10,7 @@ export default function RiskIntelligence({ onBuildPlanClick }) {
           <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gold-light text-secondary font-badge-caps text-badge-caps uppercase font-bold">
             Workplace Risk Intelligence
           </span>
-          <h2 className="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-navy-dark mt-2 font-bold">
+          <h2 className="text-2xl sm:text-3xl lg:text-[32px] text-navy-dark mt-2 font-bold tracking-tight">
             The Hidden Cost of Substance Abuse in Industry
           </h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant mt-2">
@@ -80,7 +80,7 @@ export default function RiskIntelligence({ onBuildPlanClick }) {
                 <span className="material-symbols-outlined text-amber-rich text-[28px]">trending_down</span>
               </div>
 
-              <h3 className="font-headline-lg text-headline-lg text-navy-dark font-bold leading-tight">
+              <h3 className="text-[18px] sm:text-[20px] lg:text-[22px] text-navy-dark font-bold leading-snug">
                 Protect Productivity & Reduce High Employee Turnover
               </h3>
 

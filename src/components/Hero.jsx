@@ -9,7 +9,7 @@ export default function Hero({ onScheduleClick, onExploreClick }) {
           {/* Left Content Column */}
           <div className="lg:col-span-7 flex flex-col gap-space-md z-10">
             {/* Hero Heading */}
-            <h1 className="font-display-hero text-display-hero-mobile lg:text-display-hero text-navy-dark tracking-tight leading-tight">
+            <h1 className="text-2xl sm:text-4xl lg:text-[44px] lg:leading-[52px] font-extrabold text-navy-dark tracking-tight">
               Accurate, Fast & <br className="hidden sm:inline" />
               <span className="text-royal-blue">Court-Ready</span> Diagnostic Testing Solutions
             </h1>
@@ -85,8 +85,8 @@ export default function Hero({ onScheduleClick, onExploreClick }) {
                       <span className="material-symbols-outlined text-[20px]">verified_user</span>
                     </div>
                     <div>
-                      <h3 className="font-headline-sm text-headline-sm text-navy-dark leading-tight">UPIC Labs Direct</h3>
-                      <p className="font-label-sm text-label-sm text-slate-muted">Laboratory Order & Specimen Verification</p>
+                      <h3 className="text-base sm:text-[17px] font-bold text-navy-dark leading-tight">UPIC Labs Direct</h3>
+                      <p className="text-xs text-slate-muted">Laboratory Order & Specimen Verification</p>
                     </div>
                   </div>
                   <span className="px-2.5 py-1 rounded bg-gold-light text-secondary font-badge-caps text-badge-caps uppercase font-bold">
@@ -115,22 +115,22 @@ export default function Hero({ onScheduleClick, onExploreClick }) {
 
                 {/* Quick Live Capabilities Ticker */}
                 <div className="grid grid-cols-2 gap-space-xs pt-space-2xs">
-                  <div className="p-space-xs rounded-lg bg-surface-clinical border border-border-subtle flex flex-col">
-                    <span className="font-label-sm text-label-sm text-slate-muted">Collection Modality</span>
-                    <span className="font-title-md text-title-md text-navy-dark font-bold">Urine, Hair & Oral</span>
+                  <div className="p-2 sm:p-2.5 rounded-lg bg-surface-clinical border border-border-subtle flex flex-col">
+                    <span className="text-[11px] text-slate-muted font-medium">Collection Modality</span>
+                    <span className="text-[13px] sm:text-[14px] text-navy-dark font-bold leading-tight mt-0.5">Urine, Hair & Oral</span>
                   </div>
-                  <div className="p-space-xs rounded-lg bg-surface-clinical border border-border-subtle flex flex-col">
-                    <span className="font-label-sm text-label-sm text-slate-muted">Legal Compliance</span>
-                    <span className="font-title-md text-title-md text-navy-dark font-bold">DOT 49 CFR Part 40</span>
+                  <div className="p-2 sm:p-2.5 rounded-lg bg-surface-clinical border border-border-subtle flex flex-col">
+                    <span className="text-[11px] text-slate-muted font-medium">Legal Compliance</span>
+                    <span className="text-[13px] sm:text-[14px] text-navy-dark font-bold leading-tight mt-0.5">DOT 49 CFR Part 40</span>
                   </div>
-                  <div className="p-space-xs rounded-lg bg-surface-clinical border border-border-subtle flex flex-col">
-                    <span className="font-label-sm text-label-sm text-slate-muted">DNA Admissibility</span>
-                    <span className="font-title-md text-title-md text-navy-dark font-bold">AABB Chain Custody</span>
+                  <div className="p-2 sm:p-2.5 rounded-lg bg-surface-clinical border border-border-subtle flex flex-col">
+                    <span className="text-[11px] text-slate-muted font-medium">DNA Admissibility</span>
+                    <span className="text-[13px] sm:text-[14px] text-navy-dark font-bold leading-tight mt-0.5">AABB Chain Custody</span>
                   </div>
-                  <div className="p-space-xs rounded-lg bg-surface-clinical border border-border-subtle flex flex-col">
-                    <span className="font-label-sm text-label-sm text-slate-muted">On-Call Readiness</span>
-                    <span className="font-title-md text-title-md text-status-success font-bold flex items-center gap-1">
-                      <span className="w-2 h-2 rounded-full bg-status-success inline-block"></span>
+                  <div className="p-2 sm:p-2.5 rounded-lg bg-surface-clinical border border-border-subtle flex flex-col">
+                    <span className="text-[11px] text-slate-muted font-medium">On-Call Readiness</span>
+                    <span className="text-[13px] sm:text-[14px] text-status-success font-bold flex items-center gap-1 leading-tight mt-0.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-status-success inline-block"></span>
                       Active 24/7 Mobile
                     </span>
                   </div>

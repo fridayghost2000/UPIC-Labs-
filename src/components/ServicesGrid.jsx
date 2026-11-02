@@ -79,7 +79,7 @@ export default function ServicesGrid({ onSelectService }) {
             <span className="font-badge-caps text-badge-caps uppercase tracking-wider text-royal-blue font-bold">
               Diagnostic Capabilities
             </span>
-            <h2 className="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-navy-dark mt-1 font-bold">
+            <h2 className="text-2xl sm:text-3xl lg:text-[32px] text-navy-dark mt-1 font-bold tracking-tight">
               Custom Diagnostic Testing Services Designed for Total Certainty
             </h2>
             <p className="font-body-md text-body-md text-on-surface-variant mt-space-xs">
@@ -120,7 +120,7 @@ export default function ServicesGrid({ onSelectService }) {
                       {service.badgeStatus}
                     </span>
                   </div>
-                  <h3 className="font-headline-md text-headline-md text-navy-dark font-bold mt-1 leading-snug">
+                  <h3 className="text-[17px] sm:text-[18px] lg:text-[19px] text-navy-dark font-bold mt-1 leading-snug">
                     {service.title}
                   </h3>
                 </div>

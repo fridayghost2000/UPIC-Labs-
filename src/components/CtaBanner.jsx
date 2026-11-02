@@ -7,7 +7,7 @@ export default function CtaBanner({ onRequestClick }) {
         <span className="px-3 py-1 rounded-full bg-secondary-fixed text-slate-charcoal font-badge-caps text-badge-caps uppercase font-bold">
           Fast Local Service
         </span>
-        <h2 className="font-headline-xl text-headline-xl-mobile md:text-headline-xl font-bold max-w-2xl leading-tight">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold max-w-2xl leading-tight">
           Need Certified Specimen Collection or Court-Ready DNA in London, KY?
         </h2>
         <p className="font-body-lg text-body-lg text-surface-container-highest max-w-xl">

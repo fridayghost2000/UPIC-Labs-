@@ -47,7 +47,7 @@ export default function ComplianceProtocols() {
           <span className="font-badge-caps text-badge-caps uppercase tracking-wider text-royal-blue font-bold">
             Federal Agency Protocols
           </span>
-          <h2 className="font-headline-lg text-headline-lg text-navy-dark mt-1 font-bold">
+          <h2 className="text-2xl sm:text-[28px] text-navy-dark mt-1 font-bold tracking-tight">
             Multi-Modal Regulatory Compliance
           </h2>
           <p className="font-body-md text-body-md text-on-surface-variant mt-1">

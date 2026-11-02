@@ -33,7 +33,7 @@ export default function FaqSection() {
           <span className="font-badge-caps text-badge-caps uppercase tracking-wider text-royal-blue font-bold">
             Clear Guidance
           </span>
-          <h2 className="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-navy-dark mt-1 font-bold">
+          <h2 className="text-2xl sm:text-3xl text-navy-dark mt-1 font-bold tracking-tight">
             Frequently Asked Questions
           </h2>
           <p className="font-body-md text-body-md text-on-surface-variant mt-2">
